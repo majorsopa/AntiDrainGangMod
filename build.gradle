@@ -3,7 +3,7 @@
 	id 'java'
 }
 
-group = "me.srgantmoomoo"
+group = "me.majorsopa"
 version = "4"
 
 repositories {

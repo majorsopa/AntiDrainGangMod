@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "antidraingang",
+  "version": "0.0.1",
+  "name": "AntiDrainGang",
+  "description": "This is not a cheat.",
+  "authors": [
+    "majorsopa"
+  ],
+  "contact": {
+    "homepage": "https://github.com/majorsopa/",
+    "sources": "https://github.com/majorsopa/AntiDrainGangMod"
+  },
+  "license": "GPL-3.0",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.majorsopa.antidraingang.AntiDrainGang"
+    ]
+  },
+  "mixins": [
+    "antidraingang.mixins.json"
+  ]
+}
