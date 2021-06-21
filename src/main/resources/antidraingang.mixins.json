@@ -1,9 +1,10 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "me.majorsopa.antidraingang",
+  "package": "me.majorsopa.antidraingang.mixins",
   "compatibilityLevel": "JAVA_8",
   "client": [
+    "TotemRenderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

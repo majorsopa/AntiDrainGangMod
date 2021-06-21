@@ -15,7 +15,7 @@ public class SettingManager {
 	private ArrayList<Setting> settings;
 	
 	public SettingManager(){
-		this.settings = new ArrayList<Setting>();
+		this.settings = new ArrayList<>();
 	}
 	
 	public void rSetting(Setting in){
@@ -47,7 +47,7 @@ public class SettingManager {
 			}
 			}
 		}
-		System.err.println("[postman] Error Setting NOT found: '" + name +"'!");
+		System.err.println("[AntiDrainGang] Error Setting NOT found: '" + name +"'!");
 		return null;
 	}
 }

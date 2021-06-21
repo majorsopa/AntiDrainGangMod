@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class SaveLoad {
 	private File dir;
 	private File dataFile;
+
 	
 	@SuppressWarnings("resource")
 	public SaveLoad() {
@@ -79,7 +80,7 @@ public class SaveLoad {
 	}
 	
 	public void load() {
-		ArrayList<String> lines = new ArrayList<String>();
+		ArrayList<String> lines = new ArrayList<>();
 		
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(this.dataFile));

@@ -6,11 +6,13 @@ import me.majorsopa.antidraingang.command.Command;
 import me.majorsopa.antidraingang.command.CommandManager;
 import me.majorsopa.antidraingang.module.Module;
 import me.majorsopa.antidraingang.module.ModuleManager;
+import me.majorsopa.antidraingang.module.modules.TotemHud;
 import me.majorsopa.antidraingang.module.setting.SettingManager;
 import me.majorsopa.antidraingang.ui.UI;
 import me.zero.alpine.bus.EventBus;
 import me.zero.alpine.bus.EventManager;
-import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.ModInitializer;
+import net.minecraft.client.MinecraftClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,7 +23,7 @@ import org.apache.logging.log4j.Logger;
  * THANKS MOOMOO!! -majorsopa
  */
 
-public class AntiDrainGang implements ClientModInitializer {
+public class AntiDrainGang implements ModInitializer {
 	public static AntiDrainGang INSTANCE;
 	
 	public AntiDrainGang() {
@@ -29,7 +31,7 @@ public class AntiDrainGang implements ClientModInitializer {
 	}
 
 	@Override
-	public void onInitializeClient() {
+	public void onInitialize() {
 		variables.modid = "antidraingang";
 		variables.modname = "AntiDrainGang";
 		variables.modversion = "0.0.1";
@@ -60,7 +62,7 @@ public class AntiDrainGang implements ClientModInitializer {
 		public static CommandManager commandManager;
 	}
 	
-	public static final Logger LOGGER = LogManager.getLogger("bedroom");
+	public static final Logger LOGGER = LogManager.getLogger("antidraingang");
 	public static EventBus EVENTBUS = new EventManager();
 	
 	public static Object syncronize = new Object();
@@ -105,6 +107,8 @@ public class AntiDrainGang implements ClientModInitializer {
 		
 		classes.saveLoad = new SaveLoad();
 		printLog("config initialized.");
+
+		addModule(new TotemHud("TotemHUD", "Shows how many totems you have left", -1, Module.Category.HUD));
 	}
 
 }

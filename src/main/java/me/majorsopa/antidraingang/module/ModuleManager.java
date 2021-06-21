@@ -3,6 +3,7 @@ package me.majorsopa.antidraingang.module;
 import me.majorsopa.antidraingang.AntiDrainGang;
 import me.majorsopa.antidraingang.api.event.events.EventKeyPress;
 import me.majorsopa.antidraingang.module.Module.Category;
+import me.majorsopa.antidraingang.module.modules.TotemHud;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.client.MinecraftClient;

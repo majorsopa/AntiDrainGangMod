@@ -26,7 +26,7 @@ public class Module implements Listenable {
 	public Category category;
 	public boolean enabled;
 	public int index;
-	public List<Setting> settings = new ArrayList<Setting>();
+	public List<Setting> settings = new ArrayList<>();
 	
 	public Module(String name, String description, int key, Category category) {
 		super();
@@ -39,7 +39,7 @@ public class Module implements Listenable {
 	}
 	
 	public enum Category {
-		PLAYER("player"), RENDER("render"), COMBAT("combat"), MOVEMENT("movement"), MISCELLANEOUS("miscellaneous");
+		HUD("hud"), RENDER("render"), CLIENT("client"), MISCELLANEOUS("miscellaneous");
 		public String name;
 		public int moduleIndex;
 		
