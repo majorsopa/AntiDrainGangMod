@@ -3,10 +3,7 @@ package me.majorsopa.antidraingang.command;
 import me.majorsopa.antidraingang.AntiDrainGang;
 import me.majorsopa.antidraingang.api.event.events.EventKeyPress;
 import me.majorsopa.antidraingang.api.util.TextFormatting;
-import me.majorsopa.antidraingang.command.commands.Help;
-import me.majorsopa.antidraingang.command.commands.ModuleList;
-import me.majorsopa.antidraingang.command.commands.Prefix;
-import me.majorsopa.antidraingang.command.commands.Toggle;
+import me.majorsopa.antidraingang.command.commands.*;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.client.MinecraftClient;
@@ -28,28 +25,30 @@ public class CommandManager {
 	
 	public static List<Command> commands = new ArrayList<Command>();
 	public static String prefix = ",";
-	public boolean commandFound = false;
-	
+
 	public CommandManager() {
 		AntiDrainGang.EVENTBUS.subscribe(listener);
-		if(AntiDrainGang.includes.includeDefaultCommands) register();
+		register();
 	}
-	
+
 	public void register() {
-		commands.add(new Toggle());
-		commands.add(new Help());
-		commands.add(new Prefix());
-		commands.add(new ModuleList());
+		commands.add(new ToggleCommand());
+		commands.add(new HelpCommand());
+		commands.add(new PrefixCommand());
+		commands.add(new ModuleListCommand());
+
+		commands.add(new SettingCommand());
 	}
 	
-	public static void callCommandReturn(String input) {
+	public static boolean callCommandReturn(String input) {
         String message = input;
-        
-        if(!message.startsWith(prefix))
-        	return;
+
+        if (!message.startsWith(prefix)) {
+			return false;
+		}
         
         message = message.substring(prefix.length());
-        if(message.split(" ").length > 0) {
+        if (message.split(" ").length > 0) {
         	boolean commandFound = false;
         	String commandName = message.split(" ")[0];
         	for(Command c : commands) {
@@ -59,10 +58,12 @@ public class CommandManager {
 	        		break;
         		}
         	}
-        	if(!commandFound) {
+        	if (!commandFound) {
         		addChatMessage(TextFormatting.DARK_RED + "command does not exist, use " + TextFormatting.ITALIC + prefix + "help " + TextFormatting.RESET + "" + TextFormatting.DARK_RED + "for help.");
         	}
         }
+
+        return true;
     }
 	
 	@EventHandler

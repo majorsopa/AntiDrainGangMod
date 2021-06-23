@@ -6,9 +6,9 @@ import me.majorsopa.antidraingang.command.CommandManager;
 import me.majorsopa.antidraingang.module.Module;
 import me.majorsopa.antidraingang.module.ModuleManager;
 
-public class Toggle extends Command {
+public class ToggleCommand extends Command {
 	
-	public Toggle() {
+	public ToggleCommand() {
 		super("toggle", "toggles a module by name.", "toggle <module>", "t");
 	}
 

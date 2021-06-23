@@ -9,36 +9,27 @@ import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 
 @SuppressWarnings("resource")
-public class Help extends Command {
+public class HelpCommand extends Command {
 	
-	public Help() {
-		super("help", "helps u penis.", "help", "h");
+	public HelpCommand() {
+		super("help", "figure it out.", "help", "h");
 	}
-	
-	public static Prefix prefix;
-	public static Toggle toggle;
-	public static ModuleList moduleList;
+
 
 	@Override
 	public void onCommand(String[] args, String command) {
-		prefix = new Prefix();
-		toggle = new Toggle();
-		moduleList = new ModuleList();
-		
 		welcomeMessage();
-		helpMessage(prefix.getName(), prefix.getDescription(), prefix.getSyntax());
-		helpMessage(toggle.getName(), toggle.getDescription(), toggle.getSyntax());
-		helpMessage(moduleList.getName(), moduleList.getDescription(), moduleList.getSyntax());
+		for (Command leCommand : CommandManager.commands) {
+			helpMessage(leCommand.getName(), leCommand.getDescription(), leCommand.getSyntax());
+		}
 		goodbyeMessage();
 	}
 	
 	private void helpMessage(String commandName, String commandDesc, String commandSyntax) {
 		String starter = TextFormatting.LIGHT_PURPLE + commandName + TextFormatting.GRAY + " - " + commandDesc;
 		String syntaxMessage = " [" + CommandManager.prefix + commandSyntax + "]";
-		
-		String message = starter;
-		
-		Text textComponentString = new LiteralText(message);
+
+		Text textComponentString = new LiteralText(starter);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
 		Text syntaxTextComponentString = new LiteralText(syntaxMessage);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(syntaxTextComponentString);

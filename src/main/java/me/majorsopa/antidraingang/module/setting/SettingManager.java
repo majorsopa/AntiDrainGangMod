@@ -2,6 +2,8 @@ package me.majorsopa.antidraingang.module.setting;
 
 import me.majorsopa.antidraingang.module.Module;
 import me.majorsopa.antidraingang.module.ModuleManager;
+import me.majorsopa.antidraingang.module.setting.settings.BooleanSetting;
+import me.majorsopa.antidraingang.module.setting.settings.NumberSetting;
 
 import java.util.ArrayList;
 
@@ -48,6 +50,30 @@ public class SettingManager {
 			}
 		}
 		System.err.println("[AntiDrainGang] Error Setting NOT found: '" + name +"'!");
+		return null;
+	}
+
+	public BooleanSetting getBooleanSetting(Module module, String name) {
+		// if there are no settings of the type it will return null
+		for (int i = 0; i < module.settings.size(); i++) {
+			Setting inSetting = module.settings.get(i);
+			if (inSetting.name.equalsIgnoreCase(name) && inSetting instanceof BooleanSetting) {
+				return (BooleanSetting) inSetting;
+			}
+		}
+		return null;
+	}
+
+	//todo add the other settings
+
+	public NumberSetting getNumberSetting(Module module, String name) {
+		// if there are no settings of the type it will return null
+		for (int i = 0; i < module.settings.size(); i++) {
+			Setting inSetting = module.settings.get(i);
+			if (inSetting.name.equalsIgnoreCase(name) && inSetting instanceof NumberSetting) {
+				return (NumberSetting) inSetting;
+			}
+		}
 		return null;
 	}
 }

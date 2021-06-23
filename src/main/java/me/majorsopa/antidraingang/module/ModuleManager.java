@@ -3,7 +3,8 @@ package me.majorsopa.antidraingang.module;
 import me.majorsopa.antidraingang.AntiDrainGang;
 import me.majorsopa.antidraingang.api.event.events.EventKeyPress;
 import me.majorsopa.antidraingang.module.Module.Category;
-import me.majorsopa.antidraingang.module.modules.TotemHud;
+import me.majorsopa.antidraingang.module.modules.hud.FpsCounter;
+import me.majorsopa.antidraingang.module.modules.hud.TotemHud;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.client.MinecraftClient;
@@ -25,6 +26,12 @@ public class ModuleManager {
 	public ModuleManager() {
 		AntiDrainGang.EVENTBUS.subscribe(listener);
 		modules = new ArrayList<>();
+		register();
+	}
+
+	public void register() {
+		modules.add(new TotemHud());
+		modules.add(new FpsCounter());
 	}
 	
 	public static void onUpdate() {
@@ -33,6 +40,7 @@ public class ModuleManager {
 	
 	public static boolean isModuleEnabled(String name) {
 		Module m = modules.stream().filter(mm->mm.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
+		assert m != null;
 		return m.isEnabled();
 	}
 	

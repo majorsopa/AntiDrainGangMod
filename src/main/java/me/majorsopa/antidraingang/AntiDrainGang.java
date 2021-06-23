@@ -6,13 +6,11 @@ import me.majorsopa.antidraingang.command.Command;
 import me.majorsopa.antidraingang.command.CommandManager;
 import me.majorsopa.antidraingang.module.Module;
 import me.majorsopa.antidraingang.module.ModuleManager;
-import me.majorsopa.antidraingang.module.modules.TotemHud;
 import me.majorsopa.antidraingang.module.setting.SettingManager;
 import me.majorsopa.antidraingang.ui.UI;
 import me.zero.alpine.bus.EventBus;
 import me.zero.alpine.bus.EventManager;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.client.MinecraftClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -35,8 +33,8 @@ public class AntiDrainGang implements ModInitializer {
 		variables.modid = "antidraingang";
 		variables.modname = "AntiDrainGang";
 		variables.modversion = "0.0.1";
+		variables.repo = "https://github.com/majorsopa/AntiDrainGangMod";
 
-		includes.includeDefaultCommands = true;
 		includes.includeUI = true;
 
 		init();
@@ -45,11 +43,11 @@ public class AntiDrainGang implements ModInitializer {
 	public static class variables {
 		public static String modid;
 		public static String modname;
-		public static String modversion;	
+		public static String modversion;
+		public static String repo;
 	}
 	
 	public static class includes {
-		public static boolean includeDefaultCommands;
 		public static boolean includeUI;	
 	}
 	
@@ -107,8 +105,6 @@ public class AntiDrainGang implements ModInitializer {
 		
 		classes.saveLoad = new SaveLoad();
 		printLog("config initialized.");
-
-		addModule(new TotemHud("TotemHUD", "Shows how many totems you have left", -1, Module.Category.HUD));
 	}
 
 }

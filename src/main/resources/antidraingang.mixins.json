@@ -2,9 +2,11 @@
   "required": true,
   "minVersion": "0.8",
   "package": "me.majorsopa.antidraingang.mixins",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_11",
   "client": [
-    "TotemRenderMixin"
+    "InGameHudMixin",
+    "MinecraftClientMixin",
+    "ClientConnectionMixin"
   ],
   "injectors": {
     "defaultRequire": 1

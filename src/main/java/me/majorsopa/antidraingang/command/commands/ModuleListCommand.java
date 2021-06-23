@@ -6,9 +6,9 @@ import me.majorsopa.antidraingang.command.CommandManager;
 import me.majorsopa.antidraingang.module.Module;
 import me.majorsopa.antidraingang.module.ModuleManager;
 
-public class ModuleList extends Command {
+public class ModuleListCommand extends Command {
 	
-	public ModuleList() {
+	public ModuleListCommand() {
 		super("modulelist", "gets a list of all the modules.", "moduleList", "ml");
 	}
 

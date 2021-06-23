@@ -4,9 +4,9 @@ import me.majorsopa.antidraingang.api.util.TextFormatting;
 import me.majorsopa.antidraingang.command.Command;
 import me.majorsopa.antidraingang.command.CommandManager;
 
-public class Prefix extends Command {
+public class PrefixCommand extends Command {
 	
-	public Prefix() {
+	public PrefixCommand() {
 		super("prefix", "allows you to change the command prefix.", "prefix <key>", "p");
 	}
 
